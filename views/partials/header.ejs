@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>YelpCamp</title>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- <link rel="stylesheet" type = "text/css" href="/stylesheets/main.css"> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+		
+		
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<!-- ham -->
+					
+					 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+					
+					<!-- burger -->
+					<a class="navbar-brand" href="/">YelpCamp</a>
+				</div>
+				<div class="collapse navbar-collapse"  id="bs-example-navbar-collapse-1">
+					<ul class ="nav navbar-nav navbar-right">
+						<% if(!currentUser){ %>
+						<li><a href="/login">Login</a></li>
+						<li><a href="/register">Sign up</a></li>
+						<% } else{ %>
+						<li><a href="#">SIGNED IN AS <%=currentUser.fname.toUpperCase()%></a></li>
+						<li><a href="/logout">Logout</a></li>
+						<% } %>
+					</ul>
+				</div>
+			
+			</div>
+		</nav>
+		<div class="container">
+		<%if(error && error.length>0){%>
+			<div class="alert alert-danger">
+			<%=error%>
+		</div>	
+			<%}%>
+			<%if(success && success.length>0){%>
+		<div class="alert alert-success">
+			<%=success%>
+		</div>
+			<%}%>
+		</div>
+		
+	

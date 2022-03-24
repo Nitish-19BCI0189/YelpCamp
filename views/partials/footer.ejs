@@ -1,0 +1,53 @@
+<div id="cuser" style="display:none">
+	<%if(currentUser){%>
+	<%=currentUser._id%>
+	<%}else{%>
+	false
+	<%}%>
+</div>
+
+
+
+<script
+          src="https://code.jquery.com/jquery-3.1.1.min.js"
+          integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+          crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- js file -->
+<script src="/js/script.js"></script>
+
+<script type="text/javascript">
+	$(".add").click(function(){
+		  <%if(currentUser){%>
+        $(".comment-form").slideToggle();
+		  <%} else{%>
+		  $(".login-first").slideToggle();
+		  <%}%>
+      });
+	 $(".comment-area").on("click",".edit",function(){
+		  
+        $(this).siblings(".edit-form").slideToggle();
+		 $(this).blur();
+		 $(this).siblings(".comment-text").toggleClass("display");
+		  
+      });
+	
+	$(".submitted").click(function(){
+		  <%if(currentUser){%>
+        $(".comment-form").slideToggle();
+		  <%} %>
+      });
+	
+		 $(".comment-area").on("click",".update",function(){
+		  console.log($(this).parent().parent().parent());
+        $(this).parent().parent().parent(".edit-form").slideToggle();
+		  $(this).parent().parent().parent().siblings(".comment-text").toggleClass("display");
+      });
+    </script>
+
+
+    </body>
+</html>
+
+</body>
+</html>
